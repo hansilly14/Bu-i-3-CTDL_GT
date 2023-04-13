@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+void xuatMang(int arr[], int n) {
+    if (n == 0) {
+        return;
+    }
+    printf("%d ", arr[n-1]);
+    xuatMang(arr, n-1);
+}
+
+int main() {
+    int arr[] = {-1, 2,4,6,-5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    xuatMang(arr, n);
+    return 0;
+}
