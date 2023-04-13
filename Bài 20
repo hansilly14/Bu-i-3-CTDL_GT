@@ -1,0 +1,26 @@
+#include <stdio.h>
+int SX(float arr[], int n) {
+    if (n <= 1) {
+        return 0;
+    } else {
+        SX(arr, n-1);
+        float key = arr[n-1];
+        int j = n-2;
+        while (j >= 0 && arr[j] > key) {
+            arr[j+1] = arr[j];
+            j--;
+        }
+        arr[j+1] = key;
+    }
+}
+int main() {
+    float arr[] = {9.0, 5.6, 3.4, 1.2, 7.8};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    SX(arr, n);
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%f ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
