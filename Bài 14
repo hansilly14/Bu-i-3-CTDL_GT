@@ -1,0 +1,11 @@
+Giá trị của nút (node) chứa trong một biến kiểu int.
+Con trỏ left và right để trỏ đến cây con trái và cây con phải của nút hiện tại.
+Con trỏ parent để trỏ đến nút cha của nút hiện tại (nếu cần thiết).
+Cú pháp khai báo cấu trúc dữ liệu cây nhị phân các số nguyên như sau:
+arduino
+struct TreeNode {
+    int val;
+    struct TreeNode* left;
+    struct TreeNode* right;
+    struct TreeNode* parent;
+};
