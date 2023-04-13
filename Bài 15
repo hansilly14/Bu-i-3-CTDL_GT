@@ -1,0 +1,6 @@
+struct Node {
+    int data;
+    struct Node* next;
+    struct Node* prev;
+};
+Trong đó, data là dữ liệu chứa giá trị số nguyên, next là con trỏ trỏ tới nút tiếp theo trong danh sách, và prev là con trỏ trỏ tới nút trước đó trong danh sách. Đây là một danh sách liên kết kép do có thể điều chỉnh cả về phía trước và phía sau của danh sách.
