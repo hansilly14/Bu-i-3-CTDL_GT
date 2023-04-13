@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_SIZE 10
+int stack[MAX_SIZE];
+int top = -1;
+int is_empty() {
+    return top == -1;
+}
+int is_full() {
+    return top == MAX_SIZE - 1;
+}
+void push(int item) {
+    if (is_full()) {
+        printf("Stack is full\n");
+        return;
+    }
+    stack[++top] = item;
+}
+int pop() {
+    if (is_empty()) {
+        printf("Stack is empty\n");
+        return -1;
+    }
+    return stack[top--];
+}
+void display() {
+    if (is_empty()) {
+        printf("Stack is empty\n");
+        return;
+    }
+    printf("Stack elements: ");
+    for (int i = 0; i <= top; i++) {
+        printf("%d ", stack[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {41, 23, 4, 14, 56, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    for (int i = 0; i < n; i++) {
+        push(arr[i]);
+    }
+    int top_element = pop();
+    printf("Top element: %d\n", top_element);
+    display();
+
+    return 0;
+}
