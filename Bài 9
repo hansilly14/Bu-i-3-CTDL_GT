@@ -1,0 +1,62 @@
+#include <stdio.h>
+#define MAX_SIZE 10
+int queue[MAX_SIZE];
+int rear = -1;
+int front = -1;
+void enqueue(int value) {
+    if (rear == MAX_SIZE - 1) {
+        printf("Hang doi day!");
+    } else {
+        if (front == -1) {
+            front = 0;
+        }
+        rear++;
+        queue[rear] = value;
+        printf("Da them phan tu %d vao hang doi.\n", value);
+    }
+}
+void dequeue(int value) {
+    if (front == -1 || front > rear) {
+        printf("Hang doi rong!");
+    } else {
+        if (queue[front] == value) {
+            printf("Da loai bo phan tu %d khoi hang doi.\n", queue[front]);
+            front++;
+        } else {
+            printf("Phan tu %d khong co trong hang doi.\n", value);
+        }
+    }
+}
+void print_queue() {
+    if (front == -1 || front > rear) {
+        printf("Hang doi rong!");
+    } else {
+        printf("Cac phan tu trong hang doi la:\n");
+        for (int i = front; i <= rear; i++) {
+            printf("%d ", queue[i]);
+        }
+        printf("\n");
+    }
+}
+int main() {
+    // Them phan tu vao hang doi
+    enqueue(41);
+    enqueue(23);
+    enqueue(4);
+    enqueue(14);
+    enqueue(56);
+    enqueue(1);
+    // In hang doi ban dau
+    printf("Hang doi ban dau:\n");
+    print_queue();
+    // Them phan tu 55 vao hang doi
+    enqueue(55);
+    printf("Hang doi sau khi them phan tu 55:\n");
+    print_queue();
+    // Loai bo phan tu 23 khoi hang doi
+    dequeue(23);
+    printf("Hang doi sau khi loai bo phan tu 23:\n");
+    print_queue();
+
+    return 0;
+}
