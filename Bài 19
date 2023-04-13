@@ -1,0 +1,20 @@
+#include <stdio.h>
+float find_max(float arr[], int n) {
+    if (n == 1) {
+        return arr[0];
+    } else {
+        float max_num = find_max(arr, n-1);
+        if (arr[n-1] > max_num) {
+            return arr[n-1];
+        } else {
+            return max_num;
+        }
+    }
+}
+int main() {
+    float arr[] = {1.2, 3.4, 5.6, 7.8, 9.0};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    float max_num = find_max(arr, n);
+    printf("Max number in the array: %f\n", max_num);
+    return 0;
+}
